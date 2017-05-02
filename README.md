@@ -1,5 +1,5 @@
 # learning-almond
-项目名（杏仁）
+项目名（almond:杏仁）
 
 quartz学习：
 
