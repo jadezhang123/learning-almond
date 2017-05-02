@@ -1,0 +1,9 @@
+version '0.1'
+
+apply plugin: 'java'
+
+dependencies {
+    compile 'org.quartz-scheduler:quartz:2.2.1'
+    compile 'org.springframework:spring-context:4.2.5.RELEASE'
+    compile 'org.springframework:spring-context-support:4.2.5.RELEASE'
+}

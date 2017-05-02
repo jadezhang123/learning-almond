@@ -1,0 +1,3 @@
+rootProject.name = 'learning-almond'
+include 'learning-almond-quartz'
+
