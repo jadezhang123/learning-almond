@@ -29,7 +29,7 @@
         </property>
         <property name="globalJobListeners">
             <list>
-                <ref bean="jobProcessListener"/>
+                <bean class="quartz.listener.JobProcessListener"/>
             </list>
         </property>
     </bean>

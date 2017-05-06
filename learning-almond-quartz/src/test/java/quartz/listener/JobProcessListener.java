@@ -1,16 +1,15 @@
-package own.jadezhang.learning.almond.quartz.listener;
+package quartz.listener;
 
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import own.jadezhang.learning.almond.quartz.listener.JobListenerAdapter;
 
 /**
  * Created by Zhang Junwei on 2017/3/26.
  */
-@Component("jobProcessListener")
 public class JobProcessListener extends JobListenerAdapter {
     private static final Logger logger = LoggerFactory.getLogger(JobProcessListener.class);
     @Autowired

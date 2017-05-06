@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 @Component("scheduleJobManager")
 public class ScheduleJobManagerImpl implements ScheduleJobManager {
     private static Logger logger = LoggerFactory.getLogger(ScheduleJobManagerImpl.class);
+
     @Autowired
     private SchedulerFactoryBean schedulerFactory;
 
@@ -189,6 +190,10 @@ public class ScheduleJobManagerImpl implements ScheduleJobManager {
 
     private TriggerKey getTriggerKey(String triggerName, String triggerGroup) {
         return TriggerKey.triggerKey(triggerName, triggerGroup);
+    }
+
+    public void setSchedulerFactory(SchedulerFactoryBean schedulerFactory) {
+        this.schedulerFactory = schedulerFactory;
     }
 
 }
