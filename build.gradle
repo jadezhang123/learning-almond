@@ -30,7 +30,7 @@ subprojects {
 
     dependencies {
 
-        compile(group: "own.jadezhang.learning.base", name: "base-common-domain", version: "$baseCommonVersion", changing: true)
+        compile(group: "own.jadezhang.base", name: "base-common-domain", version: "$baseCommonVersion")
 
         //加载libs目录下所有的jar
         compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -44,16 +44,11 @@ subprojects {
         classifier = 'sources'
         from sourceSets.main.allSource
     }
-    //生成javadoc的jar
-    task javadocJar(type: Jar, dependsOn: javadoc) {
-        classifier = 'javadoc'
-        from javadoc.destinationDir
-    }
+
 
     artifacts {
         archives jar
         archives sourcesJar
-        archives javadocJar
     }
 
     //发布到Maven本地仓库
