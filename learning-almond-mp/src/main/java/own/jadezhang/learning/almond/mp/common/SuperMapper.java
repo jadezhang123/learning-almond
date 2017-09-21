@@ -1,4 +1,4 @@
-package own.jadezhang.learning.almond.mp.mapper;
+package own.jadezhang.learning.almond.mp.common;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 

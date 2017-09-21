@@ -6,5 +6,5 @@ import own.jadezhang.learning.almond.mp.service.ISuperService;
 /**
  * Created by Zhang Junwei on 2017/9/21 0021.
  */
-public interface IAuthUserService extends ISuperService<AuthUser>{
+public interface IAuthUserService extends ISuperService<AuthUser> {
 }
