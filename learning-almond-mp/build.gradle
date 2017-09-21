@@ -1,0 +1,12 @@
+apply plugin: 'java'
+
+dependencies {
+
+    compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'
+
+    compile 'com.baomidou:mybatis-plus:2.0.8'
+    compile 'org.springframework:spring-context:4.2.5.RELEASE'
+    compile 'org.springframework:spring-context-support:4.2.5.RELEASE'
+    compile 'org.springframework:spring-tx:4.2.5.RELEASE'
+
+}

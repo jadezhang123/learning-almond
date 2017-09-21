@@ -1,3 +1,4 @@
 rootProject.name = 'learning-almond'
 include 'learning-almond-quartz'
+include 'learning-almond-mp'
 
