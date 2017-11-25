@@ -1,0 +1,6 @@
+
+apply plugin: 'java'
+
+dependencies {
+    compile group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: '1.56'
+}
