@@ -1,5 +1,6 @@
 package own.jadezhang.learning.almond.security.asymmetry;
 
+import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.net.util.Base64;
 import org.slf4j.Logger;
@@ -21,9 +22,8 @@ public class AESCryptUtil {
     private static final Logger logger = LoggerFactory.getLogger(AESCryptUtil.class);
 
     public static final String KEY_ALGORITHM = "AES";
-    public static final String CIPHER_ALGORITHM = "AES/ECB/PKCS5Padding";
-
     private static final String KEY_PATH = "e:\\secretKey.key";
+    public static final String CIPHER_ALGORITHM = "AES/ECB/PKCS5Padding";
 
     private static Key key;
     private static Cipher cipher;
@@ -69,6 +69,7 @@ public class AESCryptUtil {
             KeyGenerator keyGenerator = KeyGenerator.getInstance(KEY_ALGORITHM);
             SecretKey secretKey = keyGenerator.generateKey();
             FileOutputStream out = new FileOutputStream(KEY_PATH);
+            System.out.println("秘钥: "+Base64.encodeBase64String(secretKey.getEncoded()));
             out.write(secretKey.getEncoded());
             out.close();
         } catch (Exception e) {
