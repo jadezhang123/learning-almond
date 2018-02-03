@@ -9,7 +9,7 @@
         resource: 指定classpath下的属性文件
         url: 指定文件系统上的特定位置, file:///
     -->
-    <properties resource=""/>
+    <!--<properties resource=""/>-->
 
     <!-- 通过这个属性指定驱动的路径 -->
     <classPathEntry location="F:\devRepository\mavenRepository\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar"/>
@@ -38,14 +38,14 @@
         <!-- 分隔符 -->
         <property name="beginningDelimiter" value="`"/>
         <property name="endingDelimiter" value="`"/>
-        <property name="javaFormatter" value=""/>
-        <property name="xmlFormatter" value=""/>
+        <!--<property name="javaFormatter" value=""/>-->
+        <!--<property name="xmlFormatter" value=""/>-->
         <!--
             定义一个插件。插件用于扩展或修改通过MBG代码生成器生成的代码，将按在配置中配置的顺序执行
             提供的插件：http://mbg.cndocs.ml/reference/plugins.html
             开发插件： http://mbg.cndocs.ml/reference/pluggingIn.html
-        -->
         <plugin type=""/>
+        -->
         <!--
             注释信息
             type: 指定用户的实现类，该类需要实现org.mybatis.generator.api.CommentGenerator接口。
