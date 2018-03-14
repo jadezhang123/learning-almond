@@ -1,4 +1,4 @@
-package redis;
+package own.jadezhang.learning.redis.connection;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -71,24 +71,5 @@ public class SerializableValueConverter implements ValueConverter {
         } catch (Exception e) {
             // ignore
         }
-    }
-
-    public static void main(String[] args) {
-        ValueConverter converter = new SerializableValueConverter();
-
-        List<String> source = new ArrayList<>();
-        source.add("a");
-        source.add("b");
-        source.add("c");
-
-        String sourceStr = converter.toString(source);
-        List<String> target = converter.toArrayValue(sourceStr, String.class);
-        for (String o : target) {
-            System.out.println(o);
-        }
-
-        sourceStr = converter.toString(2);
-        Integer integer = converter.toValue(sourceStr, Integer.class);
-        System.out.println(integer);
     }
 }

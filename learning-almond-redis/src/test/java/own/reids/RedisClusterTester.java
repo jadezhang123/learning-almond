@@ -1,5 +1,6 @@
 package own.reids;
 
+import com.alibaba.fastjson.parser.ParserConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

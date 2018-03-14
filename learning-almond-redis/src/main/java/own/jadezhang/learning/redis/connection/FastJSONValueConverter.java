@@ -1,4 +1,4 @@
-package redis;
+package own.jadezhang.learning.redis.connection;
 
 import com.alibaba.fastjson.JSON;
 
