@@ -31,6 +31,7 @@ subprojects {
     dependencies {
 
         compile(group: "own.jadezhang.base", name: "base-common-domain", version: "$baseCommonVersion")
+        compile(group: "own.jadezhang.base", name: "base-common-biz", version: "$baseCommonVersion")
 
         compile 'com.alibaba:fastjson:1.2.7'
         //加载libs目录下所有的jar

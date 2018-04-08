@@ -11,11 +11,6 @@ public class FastJSONValueConverter implements ValueConverter {
     }
 
     @Override
-    public <T> List<T> toArrayValue(String data, Class<T> type) {
-        return JSON.parseArray(data, type);
-    }
-
-    @Override
     public <T> String toString(T value) {
         return JSON.toJSONString(value);
     }

@@ -1,5 +1,6 @@
 package own.reids;
 
+import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,11 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import own.concurrent.ConcurrentMocker;
 import own.jadezhang.learning.redis.IRedisRepository;
+import own.jadezhang.learning.redis.JRedisConnection;
+import own.jadezhang.learning.redis.connection.SerializableValueConverter;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
+import redis.clients.util.Pool;
 
 
 /**
@@ -40,8 +46,10 @@ public class RedisTester {
         mocker.startConcurrentThread(mocker.new ConcurrentRunnable() {
             @Override
             public void runTask() {
+
             }
         });
 
     }
+
 }

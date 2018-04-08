@@ -9,7 +9,4 @@ public interface RedisStringCommands {
 
     <T> String set(String key, T value);
 
-    <T> Boolean setNX(String key, T value);
-
-    Long incr(String key);
 }

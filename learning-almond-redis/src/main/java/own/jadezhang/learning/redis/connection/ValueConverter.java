@@ -2,6 +2,7 @@ package own.jadezhang.learning.redis.connection;
 
 
 import java.util.List;
+import java.util.Set;
 
 public interface ValueConverter {
 
@@ -14,15 +15,6 @@ public interface ValueConverter {
      * @return 当转化出现异常返回null
      */
     <T> T toValue(String data, Class<T> type);
-
-    /**
-     * 将redis存储的字符串值转化为数组类对象
-     *
-     * @param data
-     * @param type
-     * @return 当转化出现异常返回null
-     */
-    <T> List<T> toArrayValue(String data, Class<T> type);
 
     /**
      * 将对象转化为字符串值便于redis存储

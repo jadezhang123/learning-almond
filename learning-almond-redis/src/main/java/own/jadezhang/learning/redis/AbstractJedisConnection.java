@@ -40,24 +40,12 @@ public abstract class AbstractJedisConnection implements RedisCommands {
     }
 
     @Override
-    public <T> Boolean setNX(String key, final T value) {
-        return new RedisExecutor<Boolean>(getConnection()) {
+    public <T> Long rPush(String key, final T... values) {
+        return new RedisExecutor<Long>(getConnection()) {
             @Override
-            public Boolean execute(JedisCommands connection, String key) {
-                return connection.setnx(key, valueConverter.toString(value)) > 0;
+            public Long execute(JedisCommands connection, String key) {
+                return connection.rpush(key, valueConverter.toString(values));
             }
         }.run(key);
     }
-
-    @Override
-    public Long incr(String key) {
-        return null;
-    }
-
-    @Override
-    public <T> Long rPush(String key, T... values) {
-        JedisCommands connection = getConnection();
-        return null;
-    }
-
 }

@@ -32,11 +32,6 @@ public class SerializableValueConverter implements ValueConverter {
     }
 
     @Override
-    public <T> List<T> toArrayValue(String data, Class<T> type) {
-        return (List<T>) toValue(data, List.class);
-    }
-
-    @Override
     public <T> String toString(T value) {
         ObjectOutputStream oos = null;
         ByteArrayOutputStream baos = null;

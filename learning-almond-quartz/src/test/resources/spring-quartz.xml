@@ -23,11 +23,6 @@
                 <ref bean="cronTrigger" />
             </list>
         </property>
-        <property name="globalJobListeners">
-            <list>
-                <bean class="quartz.listener.JobProcessListener"/>
-            </list>
-        </property>
     </bean>
 
     <bean id="jobTask" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
@@ -35,7 +30,7 @@
         <property name="durability" value="true" />
         <property name="requestsRecovery" value="true" />
         <property name="jobClass">
-            <value>own.jadezhang.learning.apple.service.quartz.MethodInvokingJob</value>
+            <value>own.jadezhang.learning.almond.quartz.MethodInvokingJob</value>
         </property>
         <property name="jobDataAsMap">
             <map>
@@ -47,8 +42,8 @@
 
     <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail" ref="jobTask"/>
-        <!-- 每一小时执行一次 -->
-        <property name="cronExpression" value="0 0 0/1 * * ? "/>
+        <!-- 每一分钟执行一次 -->
+        <property name="cronExpression" value="0 0/1 * * * ? "/>
         <!--
         为了处理 misfired job，Quartz 中为 trigger 定义了处理策略，主要有下面两种：
         MISFIRE_INSTRUCTION_FIRE_ONCE_NOW = 1; 针对 misfired job 马上执行一次；

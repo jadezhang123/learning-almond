@@ -5,7 +5,6 @@ import org.quartz.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.stereotype.Component;
 
 /**
@@ -16,18 +15,17 @@ public class ScheduleJobManagerImpl implements ScheduleJobManager {
     private static Logger logger = LoggerFactory.getLogger(ScheduleJobManagerImpl.class);
 
     @Autowired
-    private SchedulerFactoryBean schedulerFactory;
+    private Scheduler scheduler;
 
     @Override
     public boolean checkExist(String jobName, String group) throws SchedulerException {
-        return schedulerFactory.getScheduler().checkExists(this.getJobKey(jobName, group));
+        return scheduler.checkExists(this.getJobKey(jobName, group));
     }
 
     @Override
     public boolean addJob(JobDetail job) {
-        Scheduler scheduler = schedulerFactory.getScheduler();
         try {
-            scheduler.addJob(job, true);
+            getScheduler().addJob(job, true);
         } catch (SchedulerException e) {
             e.printStackTrace();
             return false;
@@ -75,7 +73,7 @@ public class ScheduleJobManagerImpl implements ScheduleJobManager {
     @Override
     public JobDetail getJobDetail(String jobName, String group) {
         try {
-            return schedulerFactory.getScheduler().getJobDetail(this.getJobKey(jobName, group));
+            return getScheduler().getJobDetail(this.getJobKey(jobName, group));
         } catch (SchedulerException e) {
             return null;
         }
@@ -83,7 +81,7 @@ public class ScheduleJobManagerImpl implements ScheduleJobManager {
 
     @Override
     public void triggerJob(String jobName, String group) throws SchedulerException {
-        schedulerFactory.getScheduler().triggerJob(this.getJobKey(jobName, group));
+        getScheduler().triggerJob(this.getJobKey(jobName, group));
     }
 
     @Override
@@ -142,7 +140,7 @@ public class ScheduleJobManagerImpl implements ScheduleJobManager {
 
     @Override
     public Scheduler getScheduler() {
-        return schedulerFactory.getScheduler();
+        return scheduler;
     }
 
     /**
@@ -190,10 +188,6 @@ public class ScheduleJobManagerImpl implements ScheduleJobManager {
 
     private TriggerKey getTriggerKey(String triggerName, String triggerGroup) {
         return TriggerKey.triggerKey(triggerName, triggerGroup);
-    }
-
-    public void setSchedulerFactory(SchedulerFactoryBean schedulerFactory) {
-        this.schedulerFactory = schedulerFactory;
     }
 
 }

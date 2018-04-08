@@ -28,7 +28,7 @@ public class MethodInvokingJob extends QuartzJobBean {
             Object targetBean = ctx.getBean(targetObject);
 
             if (targetBean == null) {
-                throw new JobExecutionException("can not find the bean named " +targetBean+ " in Spring ApplicationContext");
+                throw new JobExecutionException("can not find the bean named " + targetBean + " in Spring ApplicationContext");
             }
 
             Method method = null;
@@ -36,10 +36,8 @@ public class MethodInvokingJob extends QuartzJobBean {
                 //只支持无参方法
                 method = targetBean.getClass().getMethod(targetMethod, new Class[]{});
                 Object result = method.invoke(targetBean, new Object[]{});
-                if (result != null) {
-                    //如果方法有返回值则将其设到任务执行上下文中，便于TriggerListener和JobListener获取更多的信息
-                    context.setResult(result);
-                }
+                //如果方法有返回值则将其设到任务执行上下文中，便于TriggerListener和JobListener获取更多的信息
+                context.setResult(result);
             } catch (SecurityException e) {
                 logger.error("SecurityException ", e);
             } catch (NoSuchMethodException e) {
