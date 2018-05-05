@@ -26,14 +26,12 @@ public class AESCryptUtil {
     public static final String CIPHER_ALGORITHM = "AES/ECB/PKCS5Padding";
 
     private static Key key;
-    private static Cipher cipher;
 
     static {
         saveKeyBytes(false);
 
         try {
             key = new SecretKeySpec(loadKeyBytes(), KEY_ALGORITHM);
-            cipher = Cipher.getInstance(CIPHER_ALGORITHM);
         } catch (Exception e) {
             logger.error("init key and cipher occur an ERROR", e);
             System.exit(0);
@@ -44,7 +42,7 @@ public class AESCryptUtil {
     }
 
     public static byte[] encrypt(String src) throws Exception {
-
+        Cipher cipher = Cipher.getInstance(CIPHER_ALGORITHM);
         cipher.init(Cipher.ENCRYPT_MODE, key);
 
         return cipher.doFinal(src.getBytes());
@@ -52,7 +50,7 @@ public class AESCryptUtil {
     }
 
     public static String decrypt(byte[] cipherText) throws Exception {
-
+        Cipher cipher = Cipher.getInstance(CIPHER_ALGORITHM);
         cipher.init(Cipher.DECRYPT_MODE, key);
 
         byte[] result = cipher.doFinal(cipherText);
@@ -69,7 +67,7 @@ public class AESCryptUtil {
             KeyGenerator keyGenerator = KeyGenerator.getInstance(KEY_ALGORITHM);
             SecretKey secretKey = keyGenerator.generateKey();
             FileOutputStream out = new FileOutputStream(KEY_PATH);
-            System.out.println("秘钥: "+Base64.encodeBase64String(secretKey.getEncoded()));
+            System.out.println("秘钥: " + Base64.encodeBase64String(secretKey.getEncoded()));
             out.write(secretKey.getEncoded());
             out.close();
         } catch (Exception e) {

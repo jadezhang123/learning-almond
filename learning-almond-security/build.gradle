@@ -3,4 +3,7 @@ apply plugin: 'java'
 
 dependencies {
     compile group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: '1.56'
+    compile group: 'org.apache.httpcomponents', name: 'httpcore-nio', version: '4.4.4'
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.5'
+
 }
